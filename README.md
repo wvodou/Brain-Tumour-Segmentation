@@ -2,7 +2,7 @@
 Brain Tumour Segmentation project for Deep Learning Class at ETH Zurich
 
 ## Environment Setup
-Use the provided tumorsegmentation.yml file to setup your conda environment.
+Use the provided `tumorsegmentation.yml` file to setup your conda environment.
 
 ## Folder Setup
 Your local machine MUST have the following folder layout for the code to run:
