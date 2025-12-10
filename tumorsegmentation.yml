@@ -1,0 +1,28 @@
+name: tumorsegmentation
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - scikit-image
+  - matplotlib
+  - pandas
+  - tqdm
+  - nibabel
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1       # or your CUDA version; replace if needed
+  - pip
+  - pip:
+      - monai
+      - torchio
+      - opencv-python
+      - scikit-learn
+      - jupyterlab
+      - tensorboard
