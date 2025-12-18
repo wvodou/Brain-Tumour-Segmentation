@@ -51,9 +51,8 @@ class BraTSDataset(Dataset):
         sample = self.files[idx]
         sample = self.transform(sample)
 
-        selected_modalities = []
-        for index in range(len(self.modalities)):
-            selected_modalities.append(index)
+        modality_map = {"flair": 0, "t1": 1, "t1ce": 2, "t2": 3}
+        selected_modalities = [modality_map[m] for m in self.modalities]
 
         image = torch.as_tensor(sample["image"])
         image = image[selected_modalities,:,:,:]
