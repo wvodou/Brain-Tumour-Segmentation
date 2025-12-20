@@ -16,6 +16,11 @@ class BraTSDataset(Dataset):
         self.modalities = modalities
         self.transform = transform
         self.files = self.__init_files__()
+        self.modalities_idx = self.__init_modalities__()
+
+    def __init_modalities__(self):
+        modality_map = {"flair": 0, "t1": 1, "t1ce": 2, "t2": 3}
+        return [modality_map[m] for m in self.modalities]
 
     def __init_files__(self):
         patients = [
@@ -51,11 +56,8 @@ class BraTSDataset(Dataset):
         sample = self.files[idx]
         sample = self.transform(sample)
 
-        modality_map = {"flair": 0, "t1": 1, "t1ce": 2, "t2": 3}
-        selected_modalities = [modality_map[m] for m in self.modalities]
-
         image = torch.as_tensor(sample["image"])
-        image = image[selected_modalities,:,:,:]
+        image = image[self.modalities_idx,:,:,:]
 
         seg_mask = torch.as_tensor(sample["seg_mask"])
 
