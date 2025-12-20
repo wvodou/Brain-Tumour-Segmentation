@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 #%%
 import argparse
 from pathlib import Path
@@ -152,15 +153,15 @@ def main():
 
     parser = argparse.ArgumentParser(description='Converts .csv file of price data to a usable torch matrix (.pt)')
 
-    parser.add_argument("-d", "--data_path", type=Path, default='../../data/', required=True, help="Path to BraTS2021 dataset")
-    parser.add_argument("-a", "--cache", type=Path, default='../cache', required=True, help="Path to BraTS2021 dataset")
+    parser.add_argument("-d", "--data_path", type=Path, default='../../data/', help="Path to BraTS2021 dataset")
+    parser.add_argument("-a", "--cache", type=Path, default='../cache', help="Path to BraTS2021 dataset")
 
-    parser.add_argument("-o", "--output", type=Path, default='../model/monai_3d_unet.pt', required=True, help="Path to model save file")
+    parser.add_argument("-o", "--output", type=Path, default='../model/monai_3d_unet.pt', help="Path to model save file")
     parser.add_argument("-c", "--checkpoint", type=Path, default=None, help="Path to model checkpoint")
 
     parser.add_argument("-e", "--epochs", type=int, default=200, help="Number of training epochs")
 
-    parser.add_argument("-l", "--log_output", type=Path, default='../log/train_baseline_unet_log.txt', help="Path to output log file")
+    parser.add_argument("-l", "--log_output", type=Path, default='../logs/train_baseline_unet_log.txt', help="Path to output log file")
 
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose mode")
 
